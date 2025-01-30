@@ -4,6 +4,7 @@ import requests
 import ctypes
 import logging
 import json
+import winreg
 
 # Configuration
 NASA_API_KEY = "DEMO_KEY"  # Replace with your NASA API key
@@ -11,6 +12,14 @@ SAVE_FOLDER_PATH = r"placeholder"  # Replace with your desired folder path - e.g
 JSON_STATE_FILE = f"{SAVE_FOLDER_PATH}\\state.json"
 APOD_URL = f"https://api.nasa.gov/planetary/apod"
 DATE_TODAY = datetime.datetime.now().strftime("%Y-%m-%d")
+STYLE_MAP = {
+        "fill": (10, 0),
+        "fit": (6, 0),
+        "stretch": (2, 0),
+        "tile": (0, 1),
+        "center": (0, 0),
+        "span": (22, 0),
+    }
 
 logging.basicConfig(
     filename=f"{SAVE_FOLDER_PATH}\\apod_logs.log",
@@ -91,15 +100,29 @@ def get_nasa_apod():
         logging.error(f"Error fetching NASA APOD: {str(e)}")
         return None
 
-def set_wallpaper(image_path):
+def set_wallpaper(image_path, style="fill"):
     """
     Sets the provided image as the desktop wallpaper.
     """
-    if os.path.exists(image_path):
-        ctypes.windll.user32.SystemParametersInfoW(20, 0, image_path, 3)
-        logging.info(f"Wallpaper set to: {image_path}")
-    else:
-        logging.error(f"Wallpaper file not found: {image_path}")
+    if style not in STYLE_MAP:
+        logging.error(f"Invalid style '{style}' provided.")
+        return None
+    
+    wp_style, wp_tile = STYLE_MAP[style]
+
+    try:
+        if os.path.exists(image_path):
+            reg_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Control Panel\Desktop", 0, winreg.KEY_SET_VALUE)
+            winreg.SetValueEx(reg_key, "WallpaperStyle", 0, winreg.REG_SZ, str(wp_style))
+            winreg.SetValueEx(reg_key, "TileWallpaper", 0, winreg.REG_SZ, str(wp_tile))
+            winreg.CloseKey(reg_key)
+
+            ctypes.windll.user32.SystemParametersInfoW(20, 0, image_path, 3)
+            logging.info(f"Wallpaper set to: {image_path}, Wallpaper style: {style}")
+        else:
+            logging.error(f"Wallpaper file not found: {image_path}")
+    except Exception as e:
+        logging.error(f"Error setting registry values for wallpaper: {str(e)}")
 
 if __name__ == "__main__":
     # Ensure the folder exists

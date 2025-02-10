@@ -11,7 +11,7 @@ You can either run this script manually from command line (navigate to the folde
 The script is written in a way that saves a state of execution everyday to "state.json" file - there's a field "count" there which provides the number of runs of the script on given day, to provide execution of full script (including call to NASA API) multiple times (most of the time only the first execution is needed) to save on your PC resources and network. If, for any reason, you want to rerun the full script, just change the value of "count" from any number present there, to 0. The script will then behave as it is its first time today.\
 Any problems, errors, and the info during script execution is being logged to "apod_logs.log" file. You can see the file and check whatever was the problem if your wallpaper wasn't changed
 
-## Task scheduler setup (for dummies):
+## Task scheduler setup (basic walkthrough):
 * Press Win+R and enter "taskschd.msc", press "OK".
 * Navigate to "Task Scheduler Library" on the left pane.
 * Click "Create Task" on the right pane.
@@ -40,7 +40,7 @@ Skrypt możesz uruchomić manualnie (np. z lini komend - będąc w tym samym fol
 Skrypt jest napisany w taki sposób, że zlicza ilość uruchomień każdego dnia i zapisuje tę liczbę w pliku "state.json". Znajduje się tam pole "count", które przyjmuje wartość liczbową. Służy to ograniczeniu niepotrzebnego (wtórnego) wykonywania zapytań do NASA API po raz kolejny, w sytuacji kiedy już raz pobraliśmy i ustawiliśmy zdjęcie jako tapetę. Jeżeli z jakiegokolwiek powodu potrzebujesz uruchomić pełen skrypt od początku, zmień po prostu wartość dnia dzisiejszego na "0" i skrypt zareaguje tak, jakby był uruchamiany po raz pierwszy.\
 W przypadku jakichkolwiek problemów, błędów, ale także przy normalnym wykonywaniu programu, wszystkie informacje zapisywane są w "apod_logs.log". Jeżeli coś pójdzie nie tak, lub chcesz po prostu sprawdzić co się dzieje - zajrzyj tam.
 
-## Ustawienie Harmonogramu Zadań (dla opornych)
+## Ustawienie Harmonogramu Zadań (krok po kroku)
 * Naciśnij Win+R, wpisz "taskschd.msc i naciśnij "OK".
 * Przejdź do "Biblioteka Harmonogramu Zadań" na liście po lewej.
 * Naciśnij "Utwórz zadanie..." na liście po prawej.

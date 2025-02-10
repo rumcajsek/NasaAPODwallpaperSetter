@@ -5,10 +5,11 @@ import ctypes
 import logging
 import json
 import winreg
+from pathlib import Path
 
 # Configuration
 NASA_API_KEY = "DEMO_KEY"  # Replace with your NASA API key
-SAVE_FOLDER_PATH = r"placeholder"  # Replace with your desired folder path - e.g. "C:\\Users\\myuser\\Pictures\\Nasa_APOD"
+SAVE_FOLDER_PATH = f"{Path(__file__).parent}\\NASA_APOD"
 JSON_STATE_FILE = f"{SAVE_FOLDER_PATH}\\state.json"
 APOD_URL = f"https://api.nasa.gov/planetary/apod"
 DATE_TODAY = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -20,6 +21,8 @@ STYLE_MAP = {
         "center": (0, 0),
         "span": (22, 0),
     }
+# Ensure the folder exists
+os.makedirs(SAVE_FOLDER_PATH, exist_ok=True)
 
 logging.basicConfig(
     filename=f"{SAVE_FOLDER_PATH}\\apod_logs.log",
@@ -45,7 +48,7 @@ def save_state(state):
     with open(JSON_STATE_FILE, "w") as file:
         json.dump(state, file)
 
-def get_run_count():
+def get_and_increment_run_count():
     """
     Determine the run count for today.
     """
@@ -56,6 +59,22 @@ def get_run_count():
     else:
         state["date"] = DATE_TODAY
         state["count"] = 1
+    
+    save_state(state)
+    return state["count"]
+
+def get_and_decrement_run_count():
+    """
+    Resets the run count if error ocurred, so there is no need to change state.json manually after e.g. network error
+    """
+
+    state = load_state()
+
+    if state["date"] == DATE_TODAY:
+        state["count"] -= 1
+    else:
+        state["date"] = DATE_TODAY
+        state["count"] = 0
     
     save_state(state)
     return state["count"]
@@ -98,6 +117,7 @@ def get_nasa_apod():
         return wallpaper_path
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching NASA APOD: {str(e)}")
+        get_and_decrement_run_count()
         return None
 
 def set_wallpaper(image_path, style="fill"):
@@ -106,6 +126,7 @@ def set_wallpaper(image_path, style="fill"):
     """
     if style not in STYLE_MAP:
         logging.error(f"Invalid style '{style}' provided.")
+        get_and_decrement_run_count()
         return None
     
     wp_style, wp_tile = STYLE_MAP[style]
@@ -123,12 +144,11 @@ def set_wallpaper(image_path, style="fill"):
             logging.error(f"Wallpaper file not found: {image_path}")
     except Exception as e:
         logging.error(f"Error setting registry values for wallpaper: {str(e)}")
+        get_and_decrement_run_count()
+        return None
 
 if __name__ == "__main__":
-    # Ensure the folder exists
-    os.makedirs(SAVE_FOLDER_PATH, exist_ok=True)
-
-    run_count = get_run_count()
+    run_count = get_and_increment_run_count()
 
     logging.info(f"Run number: {run_count}")
 

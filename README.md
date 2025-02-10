@@ -39,7 +39,7 @@ Any problems, errors, and the info during script execution is being logged to "a
 Skrypt napisany w Pythonie i jego reprezentacja .exe służące do odpytywania serwisu NASA, pobranie "NASA Astronomy Picture of the Day" (Astronomiczne Zdjęcie Dnia NASA) i ustawienie go jako tapety pulpitu.\
 **WAŻNE** \
 **AKTUALIZACJA 10.02** \
-Dodałem pliki .exe w folderze exec/. Dostępne są wersje "console" i "no_console", różnica między nimi jest taka, że "console" podczas egzekucji programu wyświetla okienko lini komend, w którym nic się nie zapisuje. W pliku .exe jako "NASA_API_KEY" użyty jest "DEMO_KEY", więc nie nadużywaj tego programu, w innym wypadku NASA może zablokować Twoje IP jako potencjalny spam ;)
+Dodałem pliki .exe w folderze exec/. Dostępne są wersje "console" i "no_console", różnica między nimi jest taka, że "console" podczas egzekucji programu wyświetla okienko lini komend, w którym nic się nie zapisuje, no_console po prostu wykonuje program. W pliku .exe jako "NASA_API_KEY" użyty jest "DEMO_KEY", więc nie nadużywaj tego programu, w innym wypadku NASA może zablokować Twoje IP jako potencjalny spam ;) \
 Skrypt do działania wymaga zainstalowanej dystrybucji Python. Jeżeli wolisz użyć pliku .exe, zignoruj poniższą instrukcję instalacji \
 Jeżeli nie posiadasz Pythona, możesz zainstalować z oficjalnej strony: https://www.python.org/downloads/
 

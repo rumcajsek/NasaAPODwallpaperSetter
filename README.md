@@ -40,7 +40,7 @@ Skrypt do działania wymaga zainstalowanej dystrybucji Python. Niestety nie mog�
 Jeżeli nie posiadasz Pythona, możesz zainstalować z oficjalnej strony: https://www.python.org/downloads/
 
 ## Instrukcja pobierania
-Aby pobrać skrypt, wejdź w skrypt apodScript.py i naciśnij "Pobierz" jak poniżej:
+Aby pobrać skrypt, wejdź w skrypt apodScript.py i naciśnij "Download raw file" jak poniżej:
 ![image](https://github.com/user-attachments/assets/ac0a998f-8b62-4c2b-ab7b-1aadc8144cde) \
 Przenieś pobrany plik gdziekolwiek chcesz na komputerze.
 

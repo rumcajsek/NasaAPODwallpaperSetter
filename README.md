@@ -50,7 +50,7 @@ Przenieś pobrany plik gdziekolwiek chcesz na komputerze.
 
 ## Instrukcja uruchamiania
 W pierwszej kolejności, należy wprowadzić Twój klucz API od NASA (linia 13, chociaż można również zostawić "DEMO_KEY", jest to klucz ograniczony w ilości użyć na dzień na adres IP, aczkolwiek do takiego pojedynczego zastosowania wystarczy).\
-Jeżeli nie posiadasz klucza API od NASA, możesz zawnioskować o swój pod tym adresem: https://api.nasa.gov/
+Jeżeli nie posiadasz klucza API od NASA, możesz zawnioskować o swój pod tym adresem: https://api.nasa.gov/ \
 Skrypt możesz uruchomić manualnie (np. z lini komend - będąc w tym samym folderze co skrypt, uruchom komendę: "python ./apodScript.py"), lub ustawić regularne zadanie w Windowsowym Harmonogramie Zadań, żeby skrypt wykonywał się regularnie (zalecam ustawienie uruchomienia przy każdym uruchomieniu systemu).\
 Skrypt jest napisany w taki sposób, że zlicza ilość uruchomień każdego dnia i zapisuje tę liczbę w pliku "state.json". Znajduje się tam pole "count", które przyjmuje wartość liczbową. Służy to ograniczeniu niepotrzebnego (wtórnego) wykonywania zapytań do NASA API po raz kolejny, w sytuacji kiedy już raz pobraliśmy i ustawiliśmy zdjęcie jako tapetę. Jeżeli z jakiegokolwiek powodu potrzebujesz uruchomić pełen skrypt od początku, zmień po prostu wartość dnia dzisiejszego na "0" i skrypt zareaguje tak, jakby był uruchamiany po raz pierwszy.\
 W przypadku jakichkolwiek problemów, błędów, ale także przy normalnym wykonywaniu programu, wszystkie informacje zapisywane są w "apod_logs.log". Jeżeli coś pójdzie nie tak, lub chcesz po prostu sprawdzić co się dzieje - zajrzyj tam.

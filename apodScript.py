@@ -9,7 +9,6 @@ if platform.system() == "Windows":
     import winreg
     import ctypes
 
-
 # Configuration
 NASA_API_KEY = "DEMO_KEY"  # Replace with your NASA API key
 SAVE_FOLDER_PATH = os.path.join(Path(__file__).parent, "NASA_APOD")

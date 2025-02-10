@@ -20,8 +20,8 @@ Any problems, errors, and the info during script execution is being logged to "a
 * On "Begin the task:" select "At log on" and confirm with OK.
 * In "Actions" Tab click "New...".
 * In "Action" select "Start a program".
-* In "Program/script" enter (with quotation marks if your path contains spaces) - "C:\Path\To\Python\Folder\python.exe", change to your Python instalation folder, most often it stays "C:\Program Files\Python313\python.exe". 313 indicates version, so it depends on which Python version did you install.
-* In "Add arguments (optional):" enter: (again mind quotation marks) - "C:\Path\To\Python\Script\Location\apodScript.py" and confirm with OK.
+* In "Program/script" enter "python"
+* In "Add arguments (optional):" enter: (mind the spaces in path, if there are any, you **must** contain the path in quotation marks) - "C:\Path\To\Python\Script\Location\apodScript.py" and confirm with OK.
 * **OPTIONALLY**: If you're not always booting up your PC/Laptop (using Sleep (or just closing the lid) instead of Shutdown), add a second Trigger - "On workstation unlock", everything else remains the same. Waking up from sleep won't trigger the "At log on" trigger if you're already logged on, and only locked (the normal state for Sleep mode).
 * Confirm the task with "OK".
 * Test the task by logging off and on again, or just select your created task and press "Run".
@@ -49,8 +49,8 @@ W przypadku jakichkolwiek problemów, błędów, ale także przy normalnym wykon
 * Jako "Rozpocznij zadanie:" wybierz "Przy logowaniu" i potwierdź OK.
 * W karcie "Akcje" wybierz "Nowa..."
 * Jako akcję "Akcja:" wybierz "Uruchom program"
-* W polu "Program/skrypt" wpisz ścieżkę do Pythona - najczęściej powinno to być "C:\Program Files\Python313\python.exe" - 313 w tym wypadku oznacza wersję, więc zwróć uwagę na to jaką wersję masz zainstalowaną. Zwracaj uwagę na spację w ścieżce, jeżeli występują, tak jak w podanym przykładzie, **musisz** ścieżkę ująć w cudzysłowie. Jeżeli spacje nie występują, to cudzysłów i tak nie zaszkodzi.
-* W polu "Dodaj argumenty (opcjonalne):" wpisz ścieżkę w której masz zapisany skrypt. np. "C:\Users\test\Pobrane\apodScript.py" - ponownie zwracaj uwagę na spacje w ścieżce.
+* W polu "Program/skrypt" wpisz "python"
+* W polu "Dodaj argumenty (opcjonalne):" wpisz ścieżkę w której masz zapisany skrypt. np. "C:\Users\test\Pobrane\apodScript.py" - zwracaj uwagę na spacje w ścieżce, jeżeli występują, to **musisz** ująć ścieżkę w cudzysłowie.
 * **OPCJONALNIE** Jeżeli nie za każdym razem wyłączasz komputer/laptopa, ale używasz opcji Uśpij lub zamykasz klapę laptopa, wyzwalacz "Przy logowaniu" nie zadziała (wyzwalacz reaguje tylko jeżeli użytkownik był całkowicie wylogowany i ponownie się loguje). W tej sytuacji dodaj dodatkowy wyzwalacz - "Przy odblokowaniu stacji roboczej".  
 * Zatwierdź akcję i całe zadanie "OK".
 * Przetestuj wykonalność zadania z listy po prawej stronie "Uruchom".

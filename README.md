@@ -5,6 +5,11 @@ A python Script for retrieving a NASA Astronomy Picture of The Day and setting i
 Prerequisite for running this script is an installed Python distribution. Unfortunately there's no chance of creating an universally working executable file (though it is possible), since the script requires providing your own API key and folderpath.\
 Get Python from: https://www.python.org/downloads/
 
+## Downloading the script
+In order to download the script, open the script and click the "Download raw file" button:
+![image](https://github.com/user-attachments/assets/ac0a998f-8b62-4c2b-ab7b-1aadc8144cde) \
+save it wherever you want.
+
 ## Tips on running
 First of all, enter your NASA_API_KEY (you can also leave "DEMO_KEY" though, it's limited, but for a personal usage it suffices) in line 13 of the script.\
 You can either run this script manually from command line (navigate to the folder in which you saved the script and just write "python ./apodScript.py"), or set up a task in Task Scheduler to run this task periodically (preferable on startup and/or login).\
@@ -33,6 +38,11 @@ Skrypt napisany w Pythonie służący do odpytywania serwisu NASA, pobranie "NAS
 **WAŻNE** \
 Skrypt do działania wymaga zainstalowanej dystrybucji Python. Niestety nie mogę stworzyć uniwersalnego wykonywalnego pliku (tj. .exe), ponieważ skrypt do działania wymaga wprowadzenia własnego klucza API NASA i ścieżki folderu do zapisywania zdjęć.\
 Jeżeli nie posiadasz Pythona, możesz zainstalować z oficjalnej strony: https://www.python.org/downloads/
+
+## Instrukcja pobierania
+Aby pobrać skrypt, wejdź w skrypt apodScript.py i naciśnij "Pobierz" jak poniżej:
+![image](https://github.com/user-attachments/assets/ac0a998f-8b62-4c2b-ab7b-1aadc8144cde) \
+Przenieś pobrany plik gdziekolwiek chcesz na komputerze.
 
 ## Instrukcja uruchamiania
 W pierwszej kolejności, należy wprowadzić Twój klucz API od NASA (linia 13, chociaż można również zostawić "DEMO_KEY", jest to klucz ograniczony w ilości użyć na dzień na adres IP, aczkolwiek do takiego pojedynczego zastosowania wystarczy).\

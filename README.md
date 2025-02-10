@@ -2,7 +2,7 @@
 ## NasaAPODwallpaperSetter
 A python Script for retrieving a NASA Astronomy Picture of The Day and setting it as a wallpaper (Only on Windows! Maybe will add the functions for others sometime in the future...).\
 **IMPORTANT NOTICE**\
-1. Prerequisite for running this script is an installed Python distribution. Unfortunately there's no chance of creating an universally working executable file (though it is possible), since the script requires providing your own API key and folderpath.\
+Prerequisite for running this script is an installed Python distribution. Unfortunately there's no chance of creating an universally working executable file (though it is possible), since the script requires providing your own API key and folderpath.\
 Get Python from: https://www.python.org/downloads/
 
 ## Tips on running
